@@ -33,7 +33,9 @@ namespace FinalExam.Commands {
             jsonObj.Add("employees", formattedEmployee);
             jsonObj.Add("salesEmployees", formattedSalesEmployee);
 
-            if (formattedSalesEmployee.Count > 0) {
+            SalesEmployee se = salesEmployees.FirstOrDefault(x => x.Sales.Count > 0);
+
+            if (se != null) {
                 jsonObj.Add("totalSales", totalSales);
                 jsonObj.Add("totalCommission", totalCommission);
             }
